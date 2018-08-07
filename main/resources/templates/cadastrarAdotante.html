@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cadastro de adotante</title>
+</head>
+<body>
+<h1>Cadastrar adotante</h1>
+
+<nav>
+
+dar include aaqui para navbar
+
+</nav>
+
+
+<section>
+
+<form th:action = "@{/cadastrar/save}" th:object = "${adotante}" method="post">
+
+
+<label for="nome">Nome:</label>
+<input type="text" th:field = "*{nome}" id="form-nome" name="nome">
+
+<label for="sexo">Sexo:</label>
+<input type="radio" name="sexo" th:value="M" th:field="*{sexo}"checked> Masculino<br>
+<input type="radio" name="sexo"th:value="F" th:field="*{sexo}"> Feminino<br>
+
+<label for="rua">Rua:</label>
+<input type="text" th:field = "*{rua}" id="form-rua" name="rua">
+
+
+<label for="numero">Numero:</label>
+<input type="text" th:field = "*{numero}" id="form-numero" name="numero">
+
+<label for="bairro">Bairro:</label>
+<input type="text" th:field = "*{bairro}" id="form-bairro" name="bairro">
+
+<label for="cidade">Cidade:</label>
+
+
+<select name="cidade" id="form-cidade" th:field="*{cidade.id}">
+<option value=""> -- </option>
+  <option   th:each="cidade : ${cidades}" th:value="${cidade.id}" th:utext="${cidade.nome}">Srs</option>
+  
+</select>
+
+<label for="celular">Celular:</label>
+<input type="tel" th:field = "*{celular}" id="form-celular" name="celular">
+
+<label for="telefone">Telefone:</label>
+<input type="tel" th:field = "*{telefone}" id="form-telefone" name="telefone">
+
+</form>
+
+
+
+</section>
+
+
+<footer>
+
+dar include aqui para footer
+
+</footer>
+
+</body>
+</html>

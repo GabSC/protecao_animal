@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recipe Home</title>
+    
+    <link th:href="@{/teste.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>Cadastro Adotante</h1>
+
+
+<p>EM CONSTRUÇÃO </p>
+
+<div th:object = "${adotante}" >
+
+<p th:text="*{nome}">nome</p>
+
+<p th:text="${adotante.celular}">cel</p>
+
+
+<p th:text="${adotante.cidade}">cidade</p>
+
+
+</div>
+
+
+<table>
+      <tr>
+        <th>Nome</th>
+        <th>Cel</th>
+        <th>Cidade</th>
+      </tr>
+      <tr th:each="adot : ${adoList}" th:class="${adotStat.odd}? 'odd'">
+        <td th:text="${adot.nome}">nome</td>
+        <td th:text="${adot.celular}">celular</td>
+        <td th:text="${adot.cidade}">cidade</td>
+      </tr>
+    </table>
+    
+    
+    <form th:action="@{/cadastrar/save}" method="post" th:object="${adotante}">
+    
+    	<input type="text" th:field="*{nome}">
+    	<input type="submit" value="enviar">
+    
+    </form>
+
+<footer> 
+
+<div th:include = "frag :: p1"> </div>
+
+</footer>
+
+</body>
+</html>
